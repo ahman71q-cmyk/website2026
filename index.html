@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Task management </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- عناصر التصميم -->
+    <div class="signal-bar">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    
+    <div class="wave"></div>
+    <div class="tower"></div>
+    
+    <!-- Nav Bar (يظهر بعد تسجيل الدخول) -->
+    <div id="navbar" style="display: none;">
+        <div class="navbar">
+            <div class="logo">
+                <span>📡</span>
+                <span>5G Project</span>
+            </div>
+            
+            <!-- هامبرغر للموبايل -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- روابط للشاشات الكبيرة -->
+            <div class="nav-links" id="navLinks"></div>
+            
+            <!-- معلومات المستخدم مع الإشعارات -->
+            <div class="user-info">
+                <div class="notification-icon" onclick="toggleNotifications()">
+                    🔔
+                    <span id="notificationBadge" class="notification-badge" style="display: none;">0</span>
+                </div>
+                <span class="username-display" id="displayUsername"></span>
+            </div>
+        </div>
+        
+        <!-- القائمة المنسدلة للموبايل -->
+        <div class="mobile-menu" id="mobileMenu"></div>
+    </div>
+    
+    <!-- لوحة الإشعارات -->
+    <div id="notificationPanel" class="notification-panel">
+        <div class="notification-header">
+            <h3>📋 الإشعارات</h3>
+            <span onclick="toggleNotifications()" style="cursor: pointer;">✕</span>
+        </div>
+        <div class="notification-list" id="notificationList">
+            <!-- الإشعارات تظهر هنا -->
+        </div>
+    </div>
+    
+    <div id="app"></div>
+    
+    <!-- صندوق شرح المهمة الجانبي مع معاينة الملفات -->
+    <div id="taskDescriptionPanel" class="task-description-panel">
+        <div class="description-header">
+            <h3 id="panelTaskTitle">شرح المهمة</h3>
+            <button class="close-description" onclick="closeDescriptionPanel()">✕</button>
+        </div>
+        <div class="description-content">
+            <p id="panelTaskDescription">...</p>
+            
+            <!-- قسم معاينة الملفات -->
+            <div id="filePreviewSection" class="file-attachment">
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">📎 الملفات المرفوعة</h4>
+                <div id="filePreviewList" class="file-list"></div>
+            </div>
+            
+            <!-- قسم رفع الملفات (للمستخدمين) -->
+            <div id="uploadSection" class="file-attachment" style="display: none;">
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">📎 رفع ملفات جديدة</h4>
+                <input type="file" id="fileUpload" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                <button onclick="uploadFiles()" style="margin-top: 15px;">رفع الملفات</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- صندوق الرسائل المحسن -->
+    <div id="messagesPanel" class="messages-panel" style="display: none;">
+        <div class="messages-header" onclick="toggleMessages()">
+            <h3>📨 الرسائل <span id="unreadCount" class="unread-badge">0</span></h3>
+            <span>▼</span>
+        </div>
+        <div id="messagesContent" class="messages-content" style="display: none;">
+            <!-- الرسائل تظهر هنا -->
+        </div>
+        <div id="messageInput" class="message-input" style="display: none;">
+            <input type="text" id="newMessage" placeholder="اكتب رسالتك...">
+            <button onclick="sendMessage()">إرسال</button>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <span>  Project Management System v2.0 </span>
+        <div> Ahmed karam & said tiger</div>
+    </div>
+
+    <script  src=" main.js"></script>
+
+</body>
+</html>
