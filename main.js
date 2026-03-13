@@ -1351,33 +1351,29 @@ function startRealtimeSubscriptions() {
                     <div class="login-glass">
                         <div class="login-header">
                             <h1>5G Project</h1>
-                            <p>نظام إدارة <span>المشاريع</span></p>
+                            <p>نظام إدارة <span>المهام</span></p>
                         </div>
                         
                         <div class="login-input-group">
-                            <i>👤</i>
+                            <i></i>
                             <input type="text" id="username" placeholder="اسم المستخدم">
                         </div>
                         
                         <div class="login-input-group">
-                            <i>🔒</i>
+                            <i> </i>
                             <input type="password" id="password" placeholder="الرقم السري">
                         </div>
                         
                         <button class="login-button" onclick="handleLogin()">دخول </button>
                         
                         <button class="accounts-button" onclick="window.open('https://youtube.com/', '_blank')">
-                            <span class="btn-icon">👥</span>
+                            <span class="btn-icon">  #</span>
                             الحسابات
                         </button>
                         
                         <p id="error" class="login-error" style="display: none;"></p>
                         
-                        <div class="login-hint">
-                            <small><span class="highlight">👤 المستخدمين:</span> أحمد (1234) - محمد (5678) - سارة (9012)</small>
-                            <small><span class="highlight">👥 إضافيين:</span> علي (1111) - فاطمة (2222) - يوسف (3333)</small>
-                            <small><span class="highlight">👑 المدير:</span> Ahmed (admin123)</small>
-                        </div>
+                        
                     </div>
                 </div>
             `;

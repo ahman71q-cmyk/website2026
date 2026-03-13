@@ -28,6 +28,21 @@
             font-family: 'Tajawal', 'Segoe UI', sans-serif;
         }
 
+    .logo-img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00ffaa;
+    box-shadow: 0 0 15px rgba(0, 255, 170, 0.6);
+    transition: all 0.3s ease; /* تأثير ناعم عند التحويم */
+}
+
+.logo-img:hover {
+    transform: scale(1.1); /* تكبير بسيط عند التحويم */
+    border-color: #4a90e2;  /* تغيير لون الإطار */
+    box-shadow: 0 0 25px rgba(74, 144, 226, 0.8);
+}
         /* خلفية أبراج 5G متطورة */
         body::before {
             content: "";
