@@ -1388,8 +1388,7 @@ function startRealtimeSubscriptions() {
             updateNavLinks();
             updateMobileMenu();
             
-            const userTasks = tasks.filter(t => currentUser.tasks?.includes(t.id) || []);
-            
+            const userTasks = tasks.filter(t => currentUser.tasks && currentUser.tasks.includes(t.id));
             let tasksHtml = '';
             userTasks.forEach(t => {
                 let statusClass = 'status-pending';
