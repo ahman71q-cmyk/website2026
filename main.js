@@ -730,7 +730,7 @@ function startRealtimeSubscriptions() {
                 <div class="mass-message-form">
                     <h3 style="color: #00ffaa; margin-bottom: 15px;">📨 إرسال رسالة جماعية</h3>
                     <select id="massRecipient">
-                        <option value="all">👥 جميع المستخدمين</option>
+                        <option value="all"> جميع المستخدمين</option>
                         ${userOptions}
                     </select>
                     <textarea id="massMessage" placeholder="اكتب رسالتك هنا..."></textarea>
@@ -856,7 +856,7 @@ function startRealtimeSubscriptions() {
                         <span>الرئيسية</span>
                     </div>
                     <div class="nav-link ${currentSection === 'users' ? 'active' : ''}" onclick="showUserManagement()">
-                        <span>👥</span>
+                        <span></span>
                         <span>إدارة المستخدمين</span>
                     </div>
                     <div class="nav-link ${currentSection === 'tasks' ? 'active' : ''}" onclick="showTaskManagement()">
@@ -1556,7 +1556,7 @@ function startRealtimeSubscriptions() {
                             <input type="text" id="newUserName" placeholder="اسم المستخدم">
                             <input type="password" id="newUserPassword" placeholder="الرقم السري">
                             <button class="action-btn btn-add-user" onclick="addUserHandler()" style="padding: 16px 35px;">
-                                <span class="btn-icon">👥</span>
+                                <span class="btn-icon"></span>
                                 إضافة مستخدم
                             </button>
                         </div>
@@ -1607,7 +1607,7 @@ function startRealtimeSubscriptions() {
                     <td>
                         <button class="edit-btn" onclick="editTask(${t.id})">✏️ تعديل</button>
                         <button class="delete-btn" onclick="deleteTaskHandler(${t.id})">🗑️ حذف</button>
-                        <button class="edit-btn" onclick="assignTask(${t.id})">👥 تعيين</button>
+                        <button class="edit-btn" onclick="assignTask(${t.id})"> تعيين</button>
                         <button class="edit-btn" onclick="editTaskDescription(${t.id})">📝 شرح</button>
                     </td>
                 </tr>`;
