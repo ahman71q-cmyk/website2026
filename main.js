@@ -30,6 +30,9 @@ if (typeof window.supabase !== 'undefined') {
         
         let syncInterval = null;
         const app = document.getElementById('app');
+        // متغيرات لمنع التكرار اللانهائي
+        let isProcessingMessageUpdate = false;
+        let lastMessageUpdateTime = 0;
 
         // ==================== دوال التحميل من Supabase ====================
         async function loadUsers() {
@@ -253,23 +256,41 @@ function subscribeToMessages() {
         .on('postgres_changes', 
             { event: '*', schema: 'public', table: 'messages' },
             async (payload) => {
+                // منع التكرار اللانهائي
+                const now = Date.now();
+                if (isProcessingMessageUpdate || now - lastMessageUpdateTime < 1000) {
+                    console.log('⚠️ تم تخطي تحديث رسالة لتجنب التكرار');
+                    return;
+                }
+                
+                isProcessingMessageUpdate = true;
+                lastMessageUpdateTime = now;
+                
                 console.log('تغيير في الرسائل:', payload);
                 await loadMessages();
                 
                 // تحديث عداد الرسائل غير المقروءة
                 updateUnreadCount();
                 
-                // تحديث المحادثة المفتوحة
+                // تحديث المحادثة المفتوحة فقط إذا كانت الرسالة تخص المستخدم الحالي
                 if (currentChatUserId) {
-                    showChatWithUser(currentChatUserId);
+                    const shouldUpdate = payload.new && (
+                        payload.new.recipientId === currentUser.id || 
+                        payload.new.senderId === currentUser.id
+                    );
+                    
+                    if (shouldUpdate) {
+                        showChatWithUser(currentChatUserId);
+                    }
                 }
+                
+                isProcessingMessageUpdate = false;
             }
         )
         .subscribe();
     
     realtimeSubscriptions.push(subscription);
 }
-
 // الاشتراك في التغييرات على جدول notifications
 function subscribeToNotifications() {
     const subscription = supabaseClient
