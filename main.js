@@ -1366,7 +1366,7 @@ function startRealtimeSubscriptions() {
                         
                         <button class="login-button" onclick="handleLogin()">دخول </button>
                         
-                        <button class="accounts-button" onclick="window.open('https://youtube.com/', '_blank')">
+                        <button class="accounts-button" onclick="window.open('https://www.instagram.com/a7medka711?igsh=MWFrdnNuN2Rwb3BsaQ==', '_blank')">
                             <span class="btn-icon">  #</span>
                             الحسابات
                         </button>
